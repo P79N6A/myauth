@@ -1170,7 +1170,7 @@ def fuckadmin(request):
 
     userinfo = mana_login.get_userinfo(request)
     session_username = userinfo.get("username", "")
-    if session_username in ['weichongfeng', 'daizhe']:
+    if session_username in ['', '']:
         headstr = """<div style="margin-bottom:5px;">管理所有权限申请</a></div>"""
         htmlstr_list, js_file_list, css_file_list, html_footer_list = fuckadmin_html(
             request)
@@ -1290,7 +1290,7 @@ def fuckadmin_finish(request):
                 <tr><td><strong>审批时间</strong></td><td>{approvetime}</td></tr>
                 </table>
                 """.format(applyrole=applyrole, applyuser=applyuser, applyname=applyname, applymobile=applymobile, applytime=applytime, applyreason=applyreason, applytype=applytype, approver=approver, approvetime=approvetime)
-                pub_def.mana_login().sendmail(applyuser + '@qudian.com', '权限已开通', mailcontent)
+                pub_def.mana_login().sendmail(applyuser + '@.com', '权限已开通', mailcontent)
                 return render(request, 'ok.html')
 
         else:
@@ -1338,8 +1338,8 @@ def insert_user_role(applytype, applyrole, applymobile, proj_id):
     ap = applyrole.split(',')
     for p in ap:
         print p
-        connection_w = MySQLdb.connect(host='qufenqi002.mysql.rds.aliyuncs.com', port=3306,
-                                       user='op_sec_permis_w', passwd='opky58y4qNsd808', db='permissions')
+        connection_w = MySQLdb.connect(host='', port=3306,
+                                       user='', passwd='', db='permissions')
         connection_w.set_character_set('utf8')
         cursor = connection_w.cursor()
         try:
@@ -1377,8 +1377,8 @@ def gensecret(length):
 
 def insert_user(applyuser, applyname, applymobile, applyid):
     print 'insert user'
-    connection_w = MySQLdb.connect(host='qufenqi002.mysql.rds.aliyuncs.com', port=3306,
-                                   user='op_sec_permis_w', passwd='opky58y4qNsd808', db='permissions')
+    connection_w = MySQLdb.connect(host='', port=3306,
+                                   user='', passwd='', db='permissions')
     connection_w.set_character_set('utf8')
     cursor = connection_w.cursor()
     secret = gensecret(12)
@@ -1404,8 +1404,8 @@ def insert_user(applyuser, applyname, applymobile, applyid):
 
 def insert_user_proj(applytype, applymobile, proj_id):
     print 'insert user proj'
-    connection_w = MySQLdb.connect(host='qufenqi002.mysql.rds.aliyuncs.com', port=3306,
-                                   user='op_sec_permis_w', passwd='opky58y4qNsd808', db='permissions')
+    connection_w = MySQLdb.connect(host='', port=3306,
+                                   user='', passwd='', db='permissions')
     connection_w.set_character_set('utf8')
     cursor = connection_w.cursor()
     try:
@@ -1424,8 +1424,8 @@ def insert_user_proj(applytype, applymobile, proj_id):
 
 def check_user(applymobile):
     print 'check user'
-    connection_r = MySQLdb.connect(host='shopslave004.mysql.rds.aliyuncs.com',
-                                   port=3306, user='op_sec_permis_w', passwd='opky58y4qNsd808', db='permissions')
+    connection_r = MySQLdb.connect(host='',
+                                   port=3306, user='', passwd='', db='permissions')
     connection_r.set_character_set('utf8')
     cursor = connection_r.cursor()
     try:
@@ -1445,8 +1445,8 @@ def check_user(applymobile):
 
 def check_proj(applymobile, applytype, proj_id):
     print 'check proj'
-    connection_r = MySQLdb.connect(host='shopslave004.mysql.rds.aliyuncs.com',
-                                   port=3306, user='op_sec_permis_w', passwd='opky58y4qNsd808', db='permissions')
+    connection_r = MySQLdb.connect(host='',
+                                   port=3306, user='', passwd='', db='permissions')
     connection_r.set_character_set('utf8')
     cursor = connection_r.cursor()
     try:
