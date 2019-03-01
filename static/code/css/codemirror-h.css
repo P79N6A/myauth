@@ -1,0 +1,6 @@
+.CodeMirror {
+    width:1100px;
+    height: 420px;
+  overflow-x:auto; 
+  overflow-y:auto; 
+}
